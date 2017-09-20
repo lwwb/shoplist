@@ -1,0 +1,54 @@
+{foreach name='nav' item='vo' key='i'}
+{if condition='($vo.isac eq 1)'}
+{empty name='$vo.cl'}
+<li class="active treeview">
+    <a href="/index.php/{$i}">
+        <i class="fa {$vo.icon}"></i> <span>{$vo.name}</span>
+    </a>
+</li>
+{else /}
+<li class="active treeview">
+    <a href="/index.php/{$i}">
+        <i class="fa {$vo.icon}"></i>
+        <span>{$vo.name}</span>
+        <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+    </a>
+    <ul class="treeview-menu">
+        {foreach name='vo.cl' item='o' key='i'}
+        <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> {$o['name']}</a></li>
+        {/foreach}
+    </ul>
+</li>
+{/empty}
+
+{else /}
+
+{empty name='$vo.cl'}
+<li class="treeview">
+    <a href="/index.php/{$i}">
+        <i class="fa {$vo.icon}"></i> <span>{$vo.name}</span>
+    </a>
+</li>
+{else /}
+<li class="treeview">
+    <a href="/index.php/{$i}">
+        <i class="fa {$vo.icon}"></i>
+        <span>{$vo.name}</span>
+        <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+    </a>
+    <ul class="treeview-menu">
+        {foreach name='vo.cl' item='o' key='i'}
+        <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> {$o['name']}</a></li>
+        {/foreach}
+    </ul>
+</li>
+{/empty}
+
+{/if}
+
+
+{/foreach}
